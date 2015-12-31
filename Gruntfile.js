@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-  console.log('Calling grunt!');
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
@@ -128,6 +127,5 @@ module.exports = function(grunt) {
     // add your deploy tasks here
     'concat', 'uglify', 'nodemon'
   ]);
-
 
 };

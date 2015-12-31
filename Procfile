@@ -1,1 +1,1 @@
-web: grunt.task.run(deploy)
+web: grunt deploy
