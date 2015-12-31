@@ -1,1 +1,1 @@
-web: grunt deploy
+web: grunt nodemon

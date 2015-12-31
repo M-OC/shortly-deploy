@@ -7,8 +7,7 @@
     "node": "0.12.0"
     },
   "scripts": {
-    "postinstall": "grunt deploy",
-    "start": "nodemon server.js"
+    "postinstall": "grunt deploy"
     },
   "repository": "",
   "license": "Proprietary",
