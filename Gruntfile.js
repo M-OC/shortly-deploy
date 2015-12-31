@@ -3,6 +3,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+       dist: {
+        src: [
+            'app/*.js', 
+            'lib/*.js',
+            'public/client/*.js'   
+        ],
+        dest: 'public/dist/production.js',
+      }
     },
 
     mochaTest: {
@@ -21,6 +29,10 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+       build: {
+        src: 'public/dist/production.js',
+        dest: 'public/dist/production.min.js'
+      }
     },
 
     jshint: {
@@ -41,6 +53,10 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      //come back to this...
+      options: {
+        livereload: true,
+      },
       scripts: {
         files: [
           'public/client/**/*.js',
@@ -53,7 +69,11 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'public/*.css',
-        tasks: ['cssmin']
+        tasks: ['cssmin'],
+        options: {
+          //what is spawn??? look into this when we have time
+          spawn: false,
+        }
       }
     },
 
@@ -106,6 +126,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
+    'concat', 'uglify', 'nodemon'
   ]);
 
 
